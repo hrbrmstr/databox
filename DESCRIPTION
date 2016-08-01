@@ -1,11 +1,11 @@
 Package: databox
 Type: Package
-Title: databox title goes here
+Title: Tools to work with the 'databox' 'API'
 Version: 0.1.0
 Date: 2016-08-01
 Author: Bob Rudis (@hrbrmstr)
 Maintainer: Bob Rudis <bob@rudis.net>
-Description: databox description goes here
+Description: Tools to work with the 'databox' 'API'.
 URL: http://github.com/hrbrmstr/databox
 BugReports: https://github.com/hrbrmstr/databox/issues
 License: AGPL
