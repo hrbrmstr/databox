@@ -64,7 +64,7 @@ glimpse(last_push())
 
 ### Test Results
 
-```{r}
+```{r message=FALSE}
 library(databox)
 library(testthat)
 

@@ -64,31 +64,22 @@ glimpse(last_push())
     ## Observations: 1
     ## Variables: 6
     ## $ metrics           <list> <"20725|sales", "20725|expenses", "20725|sales|channel", "20725|sales|cheese">
-    ## $ request.date      <chr> "2016-08-01T16:52:44.106Z"
+    ## $ request.date      <chr> "2016-08-01T16:57:09.509Z"
     ## $ request.errors    <list> []
     ## $ request.body.data <list> <c("83000", "4000", "NA", "123000"), c("2016-08-01 00:00:00", "NA", "NA", "NA"), c("NA",...
-    ## $ response.date     <chr> "2016-08-01T16:52:44.108Z"
-    ## $ response.body.id  <chr> "1470009600f913971c54edfd3b8775"
+    ## $ response.date     <chr> "2016-08-01T16:57:09.512Z"
+    ## $ response.body.id  <chr> "147000960073e7899ede594207ab70"
 
 ### Test Results
 
 ``` r
 library(databox)
 library(testthat)
-```
 
-    ## 
-    ## Attaching package: 'testthat'
-
-    ## The following object is masked from 'package:dplyr':
-    ## 
-    ##     matches
-
-``` r
 date()
 ```
 
-    ## [1] "Mon Aug  1 12:52:11 2016"
+    ## [1] "Mon Aug  1 12:56:14 2016"
 
 ``` r
 test_dir("tests/")
