@@ -1,0 +1,74 @@
+---
+output: rmarkdown::github_document
+---
+
+`databox` : Tools to work with the ['databox' 'API'](https://databox.com/)
+
+The following functions are implemented:
+
+- `add_metric`:	Add a metric to send to databox
+- `client`:	Initialize a databox client and return a databox client object (dco)
+- `databox_api_key`:	Get or set `DATABOX_API_KEY` value
+- `last_push`:	Retrieve the metrics posted in the past push
+- `push`:	Push metrics to databox
+
+The following data sets are included:
+
+### Installation
+
+```{r eval=FALSE}
+devtools::install_github("hrbrmstr/databox")
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+options(width=120)
+```
+
+### Usage
+
+```{r message=FALSE}
+library(databox)
+library(dplyr)
+
+# current verison
+packageVersion("databox")
+```
+
+We can send one or more metrics to databox. They can be combined in a pipe as well. Once they're "pushed" they are cleared from the client object:
+
+```{r}
+databox::client() %>% 
+  add_metric("sales", 83000, Sys.Date()) %>% 
+  add_metric("sales", 4000, unit="USD") %>% 
+  add_metric("expenses", 87500) %>% 
+  add_metric("sales", 123000, mattrs=c("channel"="in-person", "cheese"="manchego")) %>% 
+  push()
+```
+
+There's a `print()` method for `dco` objects as well:
+
+```{r}
+databox::client() %>% 
+  add_metric("sales", 83000, Sys.Date()) %>% 
+  add_metric("sales", 4000, unit="USD") %>% 
+  add_metric("expenses", 87500) %>% 
+  add_metric("sales", 123000, mattrs=c("channel"="in-person", "cheese"="manchego")) %>% 
+  print()
+```
+
+Also can validate the last push:
+
+```{r}
+glimpse(last_push())
+```
+
+### Test Results
+
+```{r}
+library(databox)
+library(testthat)
+
+date()
+
+test_dir("tests/")
+```
